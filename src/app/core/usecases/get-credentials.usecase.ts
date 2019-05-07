@@ -22,8 +22,6 @@ export class GetCredentialsUsecase implements UseCase<CredentialsModel, Credenti
   execute(params: CredentialsModel): Observable<CredentialsModel> {
     const validation = this.getCredentialsValidatorService.validateUser(params);
 
-    log.info(validation);
-
     if (validation.IsValid) {
       return this.credentialsRepository.getCredentials(params);
     } else {
