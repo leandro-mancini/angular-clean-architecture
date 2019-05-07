@@ -46,6 +46,8 @@ export class LoginUsuarioComponent implements OnInit {
       this.isLoading = false;
     }))
     .subscribe((credentials: CredentialsModel) => {
+      console.log(credentials);
+
       if (credentials) {
         this.authenticationService.setCredentials(credentials);
         this.changeLogin.emit(credentials);
