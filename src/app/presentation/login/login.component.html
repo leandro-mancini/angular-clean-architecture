@@ -1,0 +1,12 @@
+<section>
+  <div class="container login">
+    <div class="praxio-encomendas">
+      <mat-icon svgIcon="logo-praxio"></mat-icon>
+      <h1 translate>APP</h1>
+    </div>
+
+    <app-login-usuario *ngIf="!credentials" (changeLogin)="changeLogin($event)"></app-login-usuario>
+    <app-login-garagem *ngIf="credentials" [credentials]="credentials" (changeLogout)="logout()"></app-login-garagem>
+  </div>
+  <h2 translate>SITE</h2>
+</section>

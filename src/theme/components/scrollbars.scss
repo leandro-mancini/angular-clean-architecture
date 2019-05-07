@@ -1,0 +1,20 @@
+@media screen and (min-width: $break-sm){
+  ::-webkit-scrollbar,
+  scrollbar {
+      width: 8px; }
+
+  /* Track */
+  ::-webkit-scrollbar-track,
+  scrollbar-track {
+      border-radius: $bhvr-bvl-full; }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb,
+  scrollbar-thumb {
+      border-radius: $bhvr-bvl-full;
+      background: $clr-theme; }
+
+  ::-webkit-scrollbar-thumb:window-inactive,
+  scrollbar-thumb:window-inactive {
+      background: $clr-theme; }
+}

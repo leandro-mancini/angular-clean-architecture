@@ -1,0 +1,67 @@
+@import 'node_modules/ngx-praxio-ui/theme/app';
+@import 'src/theme/app';
+
+:host {
+  width: 72px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  aside {
+    height: 100vh;
+    width: 100%;
+    background: $plt-full-light;
+    @include bhvr-block;
+    border-radius: 0;
+  }
+
+  .mat-button {
+    margin: 16px;
+    padding: 0;
+    min-width: inherit;
+    border-radius: $bhvr-bvl-young;
+    overflow: hidden;
+    transition: all ease-in-out 0.2s;
+
+    ::ng-deep {
+      .mat-button-focus-overlay {
+        background-color: hsla(180,9%,98%,.12);
+      }
+    }
+
+    &:hover,
+    &.cdk-focused{
+      @include bhvr-stick;
+      border: none !important;
+
+      .mat-icon{
+        color: $clr-theme;
+      }
+    }
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    @include font-rytm;
+    color: $plt-full-light;
+    @include fx-center;
+    @include font;
+    @include linear-gradient(rgba($clr-theme,1), rgba($clr-theme-from,1));
+  }
+
+  .mat-icon {
+    color: $clr-theme;
+    @include fx-center;
+    width: 40px;
+    height: 40px;
+  }
+
+  nav {
+    .mat-button {
+      margin-bottom: -16px;
+    }
+  }
+}

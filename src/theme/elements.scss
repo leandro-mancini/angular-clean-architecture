@@ -1,0 +1,21 @@
+html, body { height: 100%; }
+body {
+  margin: 0;
+  // overflow-y: scroll;
+  overflow: hidden;
+}
+
+button,
+a{
+  outline: none !important;
+}
+
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+mark, .mark {
+  background-color: $clr-theme !important;
+  color: $plt-full-light !important;
+}

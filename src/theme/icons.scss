@@ -1,0 +1,159 @@
+/* --------------------------------
+
+Icon colors
+
+-------------------------------- */
+
+.nc-icon {
+  display: inline-block;
+  /* icon primary color */
+  color: #1db4e9;
+
+  &.mat-icon{
+      display: inline-flex;
+
+      title{
+          display: none;
+      }
+  }
+}
+
+.mat-icon{
+  display: flex !important;
+
+  title{
+      display: none;
+  }
+}
+
+.nc-icon use {
+  /* change 'inherit' to a color value if you want to add a secondary color to Nucleo icons */
+  fill: inherit;
+}
+
+.nc-icon.nc-icon-outline use {
+  /* change 'inherit' to a color value if you want to add a secondary color to Nucleo icons */
+  stroke: inherit;
+}
+
+/* --------------------------------
+
+Icon basic style
+
+-------------------------------- */
+
+[svgicon*="-1x"],
+[ng-reflect-svg-icon*="-1x"]{
+  height: 16px !important;
+  width: 16px !important;
+}
+
+[svgicon*="-2x"],
+[ng-reflect-svg-icon*="-2x"]{
+  height: 24px !important;
+  width: 24px !important;
+}
+
+[svgicon*="-3x"],
+[ng-reflect-svg-icon*="-3x"]{
+  height: 32px !important;
+  width: 32px !important;
+}
+
+[svgicon*="-4x"],
+[ng-reflect-svg-icon*="-4x"]{
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.nc-icon.nc-icon-grid-16 {
+  height: 16px !important;
+  width: 16px !important;
+}
+
+.nc-icon.nc-icon-grid-24 {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.nc-icon.nc-icon-grid-32 {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.nc-icon.nc-icon-grid-48 {
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.nc-icon.nc-icon-grid-64 {
+  height: 64px !important;
+  width: 64px !important;
+}
+
+.nc-align-to-text {
+  /* scale and align icon to the text element */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.0625em;
+  stroke: none;
+  fill: none;
+}
+
+.nc-align-to-text use {
+  color: inherit;
+}
+
+.nc-icon,
+.nc-align-to-text  {
+  fill: currentColor;
+  stroke: none;
+}
+
+.nc-icon.nc-icon-outline,
+.nc-align-to-text.nc-icon-outline  {
+  fill: none;
+  stroke: currentColor;
+}
+
+.nc-icon use {
+  stroke: none;
+}
+
+.nc-icon.nc-icon-outline use {
+  fill: none;
+}
+
+.nc-icon.nc-icon-outline.stroke-1,
+.nc-align-to-text.nc-icon-outline.stroke-1 {
+  stroke-width: 1px;
+}
+
+.nc-icon.nc-icon-outline.stroke-2,
+.nc-align-to-text.nc-icon-outline.stroke-2 {
+  stroke-width: 2px;
+}
+
+.nc-icon.nc-icon-outline.stroke-3,
+.nc-align-to-text.nc-icon-outline.stroke-3 {
+  stroke-width: 3px;
+}
+
+.nc-icon.nc-icon-outline.stroke-4,
+.nc-align-to-text.nc-icon-outline.stroke-4 {
+  stroke-width: 4px;
+}
+
+.nc-icon.nc-icon-outline.stroke-1 use,
+.nc-icon.nc-icon-outline.stroke-3 use,
+.nc-align-to-text.nc-icon-outline.stroke-1 use,
+.nc-align-to-text.nc-icon-outline.stroke-3 use {
+  -webkit-transform: translateX(0.5px) translateY(0.5px);
+  -moz-transform: translateX(0.5px) translateY(0.5px);
+  -ms-transform: translateX(0.5px) translateY(0.5px);
+  -o-transform: translateX(0.5px) translateY(0.5px);
+  transform: translateX(0.5px) translateY(0.5px);
+}

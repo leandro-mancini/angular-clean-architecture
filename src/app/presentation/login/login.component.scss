@@ -1,0 +1,90 @@
+@import 'node_modules/ngx-praxio-ui/theme/app';
+@import 'src/theme/app';
+
+:host {
+  display: flex;
+  flex: 1;
+
+  section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .login {
+    max-width: 362px;
+    padding: 0;
+
+    .praxio-encomendas {
+      position: relative;
+      margin: 0 0 40px 0;
+
+      .mat-icon {
+        width: 272px;
+        height: inherit;
+      }
+
+      h1 {
+        color: $plt-graffiti-carbon;
+        text-transform: lowercase;
+        margin: 0;
+        @include font-tenor;
+        @include font;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    ::ng-deep {
+      .px-form {
+        h6 {
+          color: $plt-graffiti-carbon;
+          @include font-tenor;
+          @include font-bold;
+          margin: 0 0 16px 0;
+        }
+
+        .action {
+          margin: 40px 0 0 0;
+
+          a {
+            display: block;
+            margin: 40px 0;
+            text-align: center;
+            color: $clr-theme;
+            @include font-rytm;
+          }
+
+          px-button {
+            width: 100%;
+
+            ::ng-deep {
+              &.px-button {
+                width: 100%;
+                background-color: $clr-theme;
+
+                .mat-button-wrapper {
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: $plt-graffiti-carbon;
+    @include font-see-with-me;
+    @include font;
+    text-align: center;
+    margin: 0 0 16px 0;
+  }
+}

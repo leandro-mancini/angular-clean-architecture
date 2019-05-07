@@ -1,0 +1,51 @@
+@import 'node_modules/ngx-praxio-ui/theme/app';
+@import 'src/theme/app';
+
+:host {
+  display: block;
+  width: 100%;
+  background: $plt-full-light;
+  border-bottom: 1px solid $plt-white-platinum;
+  padding: 20px 0;
+
+  .navbar {
+    width: 100%;
+    height: inherit;
+    display: block;
+    background-color: $plt-full-light;
+
+    h2 {
+      color: $plt-graffiti-grey;
+      @include font-see-with-me;
+      @include font;
+    }
+
+    .mat-icon {
+      color: $plt-plastic-grey;
+    }
+
+    .px-button-user {
+      .px-user-block {
+        @include fx-center;
+
+        .px-user-block-picture {
+          @include fx-center;
+          overflow: hidden;
+          position: relative;
+          border-radius: 100%;
+          border: 2px solid $clr-theme;
+          width: 34px;
+          height: 34px;
+
+          img {
+            height: 34px;
+          }
+        }
+      }
+    }
+  }
+
+  px-searchbar {
+    width: 400px;
+  }
+}

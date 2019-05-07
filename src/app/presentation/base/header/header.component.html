@@ -1,0 +1,33 @@
+<mat-toolbar class="navbar">
+  <div class="row col p-0 m-0">
+    <div class="col-auto row justify-content-start align-items-center">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="col p-0">
+      <div class="row m-0 justify-content-end align-items-center">
+        <div class="col-auto p-0 row m-0 align-items-center">
+          <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="row m-0 justify-content-center">
+            <mat-icon>language</mat-icon>
+          </button>
+          <mat-menu #languageMenu="matMenu">
+            <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+              {{language}}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="col-auto p-0 row m-0 align-items-center">
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="px-button-user">
+            <div class="px-user-block">
+                <div class="px-user-block-picture">
+                    <img src="assets/images/img-avatar.jpg" alt="Usuario">
+                </div>
+            </div>
+          </button>
+          <mat-menu #menu="matMenu">
+            <app-nav-current-user></app-nav-current-user>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

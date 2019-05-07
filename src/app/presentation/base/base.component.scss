@@ -1,0 +1,42 @@
+@import 'node_modules/ngx-praxio-ui/theme/app';
+
+.mat-sidenav-content {
+  background-color: $plt-full-light;
+}
+
+:host {
+  display: flex;
+  flex: 1;
+
+  main {
+    flex: 1;
+
+    .mat-sidenav-container{
+      width: 100%;
+      min-height: 100vh;
+      background: $plt-full-light;
+
+      ::ng-deep {
+        .mat-drawer-backdrop {
+          background: rgba($plt-full-light, 0.2);
+        }
+      }
+    }
+
+    .mat-sidenav {
+      min-width: 380px;
+      margin: 0 0 0 72px;
+    }
+
+    .mat-sidenav-content {
+      padding: 0 0 0 72px;
+      min-height: 100vh;
+
+      ::ng-deep {
+        .mat-stepper-horizontal {
+          min-height: calc(100vh - 72px);
+        }
+      }
+    }
+  }
+}

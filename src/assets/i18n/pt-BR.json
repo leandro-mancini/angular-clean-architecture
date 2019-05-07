@@ -1,0 +1,13 @@
+{
+  "APP": "gerador",
+  "ENTRAR": "Entrar",
+  "TIT_HOME": "Home",
+  "TIT_LOGIN": "Login",
+  "USUARIO": "Usuário",
+  "SENHA": "Senha",
+  "OLA_BEM_VINDO": "Olá {{value}}, <br>seja bem-vindo",
+  "OUTRO_USUARIO": "Não é você? Entre com outro usuário",
+  "LOGADO_COMO": "Logado como",
+  "SAIR": "Sair",
+  "SITE": "www.praxio.com.br"
+}

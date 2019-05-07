@@ -1,0 +1,7 @@
+<div class="px-form">
+  <h6 [innerHTML]="'OLA_BEM_VINDO' | translate:{value: credentials.username}"></h6>
+  <div class="action">
+    <px-button pxImpact pxSize="lg" (click)="entrar()">{{ 'ENTRAR' | translate }}</px-button>
+    <a href="javascript:;" (click)="logout()" translate>OUTRO_USUARIO</a>
+  </div>
+</div>

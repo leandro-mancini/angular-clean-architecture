@@ -1,0 +1,14 @@
+<form class="px-form" (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+  <h6 translate>ENTRAR</h6>
+  <div class="row">
+    <div class="col-12 form-group">
+      <px-input pxSize="lg" label="{{ 'USUARIO' | translate }}" formControlName="username"></px-input>
+    </div>
+    <div class="col-12 form-group">
+      <px-input type="password" pxSize="lg" label="{{ 'SENHA' | translate }}" formControlName="senha"></px-input>
+    </div>
+  </div>
+  <div class="action">
+    <px-button pxImpact pxSize="lg" [disabled]="loginForm.invalid || isLoading">{{ 'ENTRAR' | translate }}</px-button>
+  </div>
+</form>
