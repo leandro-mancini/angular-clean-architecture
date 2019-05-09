@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { Route } from '../route.service';
-import { extract } from '@app/core';
+import { extract } from '@app/infra/translations/i18n.service';
 
 const routes: Routes = [
   Route.withShell([

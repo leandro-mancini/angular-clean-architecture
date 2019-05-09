@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { HttpInterceptor } from './infra/http/http-interceptor';
-import { AuthenticationService } from './infra/authentication/authentication.service';
+import { HttpInterceptor } from './http/http-interceptor';
+import { AuthenticationService } from './authentication/authentication.service';
 
 @NgModule({
   imports: [
@@ -21,4 +21,4 @@ import { AuthenticationService } from './infra/authentication/authentication.ser
     }
   ]
 })
-export class CoreModule { }
+export class InfraModule { }

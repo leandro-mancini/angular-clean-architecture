@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthenticationService, Logger } from '@app/core';
+import { Logger } from '@app/infra/log/logger.service';
+import { AuthenticationService } from '@app/infra/authentication/authentication.service';
+
 
 const log = new Logger('Login');
 

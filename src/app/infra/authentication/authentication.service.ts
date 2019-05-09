@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
-import { ObterUsuarioUseCase } from '../../usecases/usuario/base/ObterUsuarioUseCase';
+import { ObterUsuarioUseCase } from '@app/core/usecases/usuario/base/ObterUsuarioUseCase';
 
 const credentialsKey = 'credentials';
 

@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 
-import { I18nService } from '@app/core';
-
+import { I18nService } from '@app/infra/translations/i18n.service';
 
 @Component({
   selector: 'app-header',

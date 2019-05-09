@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '@app/core/infra/authentication/authentication.service';
+
+import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 
 @Component({
   selector: 'app-nav-current-user',

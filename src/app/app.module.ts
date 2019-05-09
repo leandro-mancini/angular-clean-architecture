@@ -7,12 +7,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@env/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { CoreModule } from '@app/core';
 import { PresentationModule } from '@app/presentation/presentation.module';
 import { MaterialModule } from '@app/material.module';
-import { DataModule } from './data/data.module';
 import { IUsuarioRepository } from './core/interfaces/repositories/IUsuarioRepository';
 import { UsuarioMockRepository } from './data/repository/usuario/mock/UsuarioMockRepository';
+import { InfraModule } from './infra/infra.module';
 
 @NgModule({
   declarations: [
@@ -20,12 +19,11 @@ import { UsuarioMockRepository } from './data/repository/usuario/mock/UsuarioMoc
   ],
   imports: [
     BrowserModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-        BrowserAnimationsModule,
-        NgbModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    NgbModule.forRoot(),
     MaterialModule,
-    CoreModule,
-    DataModule,
+    InfraModule,
     PresentationModule
   ],
   providers: [

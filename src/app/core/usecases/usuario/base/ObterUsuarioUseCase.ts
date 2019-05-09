@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
 
 import { UseCase } from '@app/core/base/use-case';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { Observable, of, throwError } from 'rxjs';
 import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
 import { ObterUsuarioValidator } from './validations/ObterUsuarioValidator';
-import { Logger } from '@app/core/infra/log/logger.service';
+import { Logger } from '@app/infra/log/logger.service';
 
 const log = new Logger('ObterUsuarioUseCase');
 

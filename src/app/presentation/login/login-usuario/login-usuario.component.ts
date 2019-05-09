@@ -4,9 +4,10 @@ import { finalize } from 'rxjs/operators';
 import { ToastService } from 'ngx-praxio-ui';
 import * as _ from 'lodash';
 
-import { AuthenticationService, Logger } from '@app/core';
 import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
 import { ValidationError } from 'ts.validator.fluent/dist';
+import { Logger } from '@app/infra/log/logger.service';
+import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 
 const log = new Logger('LoginUsuario');
 
