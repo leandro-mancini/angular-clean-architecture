@@ -32,7 +32,9 @@ export class UsuarioMockRepository extends IUsuarioRepository {
 
         return null;
       }));
-  }  inserir(model: IUsuarioModel): Observable<IUsuarioModel> {
+  }
+
+  inserir(model: IUsuarioModel): Observable<IUsuarioModel> {
     return of();
   }
   alterar(model: IUsuarioModel): Observable<IUsuarioModel> {

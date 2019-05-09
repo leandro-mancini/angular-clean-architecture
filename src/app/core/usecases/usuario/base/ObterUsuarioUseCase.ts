@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { UseCase } from '@app/core/base/use-case';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
 import { ObterUsuarioValidator } from './validations/ObterUsuarioValidator';
 import { Logger } from '@app/core/infra/log/logger.service';
@@ -27,7 +27,7 @@ export class ObterUsuarioUseCase implements UseCase<IUsuarioModel, IUsuarioModel
     } else {
       log.error(validator.Errors);
 
-      return of();
+      return throwError(validator.Errors);
     }
   }
 

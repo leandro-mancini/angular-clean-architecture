@@ -2,9 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { ToastService } from 'ngx-praxio-ui';
+import * as _ from 'lodash';
 
 import { AuthenticationService, Logger } from '@app/core';
 import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
+import { ValidationError } from 'ts.validator.fluent/dist';
 
 const log = new Logger('LoginUsuario');
 
@@ -52,7 +54,19 @@ export class LoginUsuarioComponent implements OnInit {
       } else {
         this.toast.open('Usuário ou senha inválidos.');
       }
+    }, err => this.errorHandler(err));
+  }
+
+  errorHandler(err) {
+    const erros: string[] = [];
+
+    _.forEach(err, (x: ValidationError) => {
+      const msg = x.Message;
+
+      erros.push(msg + '<br>');
     });
+
+    this.toast.open(_.join(erros, ' '));
   }
 
 }

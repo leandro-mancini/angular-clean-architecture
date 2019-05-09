@@ -18,7 +18,7 @@ export class HttpInterceptor implements HttpInterceptor {
         }
       });
 
-      return next.handle(request);
+      return next.handle(request).pipe(catchError(error => this.errorHandler(error)));
     } else {
       return next.handle(request).pipe(catchError(error => this.errorHandler(error)));
     }
