@@ -4,9 +4,9 @@ import { finalize } from 'rxjs/operators';
 import { ToastService } from 'ngx-praxio-ui';
 import * as _ from 'lodash';
 
-import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
 import { ValidationError } from 'ts.validator.fluent/dist';
 import { AuthenticationService } from '@app/infra/authentication/authentication.service';
+import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 
 @Component({
   selector: 'app-login-passo1',
@@ -45,10 +45,10 @@ export class LoginPasso1Component implements OnInit {
     .pipe(finalize(() => {
       this.isLoading = false;
     }))
-    .subscribe((credentials: CredentialsModel) => {
-      if (credentials) {
-        this.authenticationService.setCredentials(credentials);
-        this.changeLogin.emit(credentials);
+    .subscribe((usuario: IUsuarioModel) => {
+      if (usuario) {
+        this.authenticationService.setCredentials(usuario);
+        this.changeLogin.emit(usuario);
       } else {
         this.toast.open('Usuário ou senha inválidos.');
       }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Logger } from '@app/infra/log/logger.service';
 import { AuthenticationService } from '@app/infra/authentication/authentication.service';
+import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 
 
 const log = new Logger('Login');
@@ -12,7 +13,7 @@ const log = new Logger('Login');
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  credentials: any;
+  usuario: IUsuarioModel;
 
   constructor(
     private authenticationService: AuthenticationService
@@ -22,15 +23,15 @@ export class LoginComponent implements OnInit {
     this.logout();
   }
 
-  changeLogin(credentials) {
-    this.credentials = credentials;
+  changeLogin(credentials: IUsuarioModel) {
+    this.usuario = credentials;
 
     log.debug(`${credentials.username} logado com sucesso`);
   }
 
   logout() {
     this.authenticationService.logout();
-    this.credentials = null;
+    this.usuario = null;
   }
 
 }

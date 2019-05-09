@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as _ from 'lodash';
-import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
+import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 
 @Component({
   selector: 'app-login-passo2',
@@ -10,7 +10,7 @@ import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
   styleUrls: ['./login-passo2.component.scss']
 })
 export class LoginPasso2Component implements OnInit {
-  @Input() credentials: CredentialsModel;
+  @Input() usuario: IUsuarioModel;
 
   @Output() changeLogout = new EventEmitter<any>();
 

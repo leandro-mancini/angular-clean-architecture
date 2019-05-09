@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
 import { ObterUsuarioUseCase } from '@app/core/usecases/usuario/base/ObterUsuarioUseCase';
+import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 
 const credentialsKey = 'credentials';
 
 @Injectable()
 export class AuthenticationService {
 
-  private credentials: CredentialsModel | null;
+  private credentials: IUsuarioModel | null;
 
   constructor(
     private obterUsuarioUseCase: ObterUsuarioUseCase
@@ -20,7 +20,7 @@ export class AuthenticationService {
     }
   }
 
-  login(params: CredentialsModel): Observable<CredentialsModel> {
+  login(params: IUsuarioModel): Observable<IUsuarioModel> {
     return this.obterUsuarioUseCase.execute(params);
   }
 
@@ -33,11 +33,11 @@ export class AuthenticationService {
     return !!this.getCredentials;
   }
 
-  get getCredentials(): CredentialsModel | null {
+  get getCredentials(): IUsuarioModel | null {
     return this.credentials;
   }
 
-  setCredentials(credentials?: CredentialsModel) {
+  setCredentials(credentials?: IUsuarioModel) {
     this.credentials = credentials || null;
 
     if (credentials) {
