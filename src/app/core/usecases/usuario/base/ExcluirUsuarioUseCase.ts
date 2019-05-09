@@ -1,21 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { UseCase } from '@app/core/base/use-case';
 import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
+import { ExcluirUsuarioValidator } from './validations/ExcluirUsuarioValidator';
+import { Logger } from '@app/infra/log/logger.service';
+
+const log = new Logger('ExcluirUsuarioUseCase');
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExcluirUsuarioUseCase implements UseCase<number, IUsuarioModel> {
+export class ExcluirUsuarioUseCase implements UseCase<IUsuarioModel, IUsuarioModel> {
 
   constructor(
-    private iUsuarioRepository: IUsuarioRepository
+    private iUsuarioRepository: IUsuarioRepository,
+    private excluirUsuarioValidator: ExcluirUsuarioValidator
   ) { }
 
-  execute(params: number): Observable<IUsuarioModel> {
-    return this.iUsuarioRepository.excluir(params);
+  execute(params: IUsuarioModel): Observable<IUsuarioModel> {
+    const validator = this.excluirUsuarioValidator.validarId(params);
+
+    if (validator.IsValid) {
+      return this.iUsuarioRepository.excluir(params.id);
+    } else {
+      log.error(validator.Errors);
+
+      return throwError(validator.Errors);
+    }
   }
 
 }

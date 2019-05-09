@@ -4,7 +4,7 @@ module.exports = () => {
   }
 
   // Generate Funcionarios
-  for (let i = 0; i < 10; i++) {
+  for (let i = 1; i < 21; i++) {
     const item = {
       id: i,
       username: 'usuario' + i,

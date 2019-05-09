@@ -48,7 +48,8 @@ export class UsuarioMockRepository extends IUsuarioRepository {
     return of();
   }
   excluir(id: number): Observable<IUsuarioModel> {
-    return of();
+    return this.http
+      .delete<IUsuarioMockEntity>(environment.serverUrl + '/usuarios/' + id);
   }
 
 }
