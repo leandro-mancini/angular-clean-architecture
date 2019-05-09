@@ -1,4 +1,4 @@
-export interface CredentialsMockEntity {
+export interface IUsuarioMockEntity {
   id: number;
   username: string;
   senha: string;

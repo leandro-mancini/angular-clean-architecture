@@ -11,8 +11,8 @@ import { CoreModule } from '@app/core';
 import { PresentationModule } from '@app/presentation/presentation.module';
 import { MaterialModule } from '@app/material.module';
 import { DataModule } from './data/data.module';
-import { CredentialsRepository } from './core/repositories/credentials.repository';
-import { CredentialsMockRepository } from './data/repository/credential-mock-repository/credentials-mock-repository';
+import { IUsuarioRepository } from './core/interfaces/repositories/IUsuarioRepository';
+import { UsuarioMockRepository } from './data/repository/usuario/mock/UsuarioMockRepository';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { CredentialsMockRepository } from './data/repository/credential-mock-rep
   ],
   providers: [
     {
-      provide: CredentialsRepository, useClass: CredentialsMockRepository
+      provide: IUsuarioRepository, useClass: UsuarioMockRepository
     }
   ],
   bootstrap: [AppComponent]

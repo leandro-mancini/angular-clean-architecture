@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
-import { LoginUsuarioUseCase } from '@app/core/usecases/usuario/base/LoginUsuarioUseCase';
+import { ObterUsuarioUseCase } from '../../usecases/usuario/base/ObterUsuarioUseCase';
 
 const credentialsKey = 'credentials';
 
@@ -11,7 +11,7 @@ export class AuthenticationService {
   private credentials: CredentialsModel | null;
 
   constructor(
-    private loginUsuarioUseCase: LoginUsuarioUseCase
+    private obterUsuarioUseCase: ObterUsuarioUseCase
   ) {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
 
@@ -21,7 +21,7 @@ export class AuthenticationService {
   }
 
   login(params: CredentialsModel): Observable<CredentialsModel> {
-    return this.loginUsuarioUseCase.execute(params);
+    return this.obterUsuarioUseCase.execute(params);
   }
 
   logout(): Observable<boolean> {

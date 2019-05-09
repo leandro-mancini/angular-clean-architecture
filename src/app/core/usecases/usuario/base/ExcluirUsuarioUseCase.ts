@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { UseCase } from '@app/core/base/use-case';
+import { Observable } from 'rxjs';
+
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { Observable, of } from 'rxjs';
+import { UseCase } from '@app/core/base/use-case';
 import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InserirUsuarioUseCase implements UseCase<IUsuarioModel, IUsuarioModel> {
+export class ExcluirUsuarioUseCase implements UseCase<number, IUsuarioModel> {
+
   constructor(
     private iUsuarioRepository: IUsuarioRepository
   ) { }
 
-  execute(params: IUsuarioModel): Observable<IUsuarioModel> {
-    return this.iUsuarioRepository.inserir(params);
+  execute(params: number): Observable<IUsuarioModel> {
+    return this.iUsuarioRepository.excluir(params);
   }
 
 }
