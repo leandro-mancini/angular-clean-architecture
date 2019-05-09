@@ -6,17 +6,14 @@ import * as _ from 'lodash';
 
 import { CredentialsModel } from '@app/core/domain/entities/credentials.model';
 import { ValidationError } from 'ts.validator.fluent/dist';
-import { Logger } from '@app/infra/log/logger.service';
 import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 
-const log = new Logger('LoginUsuario');
-
 @Component({
-  selector: 'app-login-usuario',
-  templateUrl: './login-usuario.component.html',
-  styleUrls: ['./login-usuario.component.scss']
+  selector: 'app-login-passo1',
+  templateUrl: './login-passo1.component.html',
+  styleUrls: ['./login-passo1.component.scss']
 })
-export class LoginUsuarioComponent implements OnInit {
+export class LoginPasso1Component implements OnInit {
   @Output() changeLogin = new EventEmitter<any>();
 
   loginForm: FormGroup;

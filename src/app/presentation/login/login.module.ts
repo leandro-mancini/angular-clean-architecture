@@ -7,8 +7,8 @@ import { NgxPraxioUiModule } from 'ngx-praxio-ui';
 import { MaterialModule } from '@app/material.module';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { LoginUsuarioComponent } from './login-usuario/login-usuario.component';
-import { LoginGaragemComponent } from './login-garagem/login-garagem.component';
+import { LoginPasso1Component } from './login-passo1/login-passo1.component';
+import { LoginPasso2Component } from './login-passo2/login-passo2.component';
 
 @NgModule({
   imports: [
@@ -21,8 +21,8 @@ import { LoginGaragemComponent } from './login-garagem/login-garagem.component';
   ],
   declarations: [
     LoginComponent,
-    LoginUsuarioComponent,
-    LoginGaragemComponent
+    LoginPasso1Component,
+    LoginPasso2Component
   ]
 })
 export class LoginModule { }

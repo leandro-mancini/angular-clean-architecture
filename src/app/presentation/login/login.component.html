@@ -5,8 +5,8 @@
       <h1 translate>APP</h1>
     </div>
 
-    <app-login-usuario *ngIf="!credentials" (changeLogin)="changeLogin($event)"></app-login-usuario>
-    <app-login-garagem *ngIf="credentials" [credentials]="credentials" (changeLogout)="logout()"></app-login-garagem>
+    <app-login-passo1 *ngIf="!credentials" (changeLogin)="changeLogin($event)"></app-login-passo1>
+    <app-login-passo2 *ngIf="credentials" [credentials]="credentials" (changeLogout)="logout()"></app-login-passo2>
   </div>
   <h2 translate>SITE</h2>
 </section>

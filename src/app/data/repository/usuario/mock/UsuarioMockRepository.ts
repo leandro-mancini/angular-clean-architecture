@@ -22,6 +22,10 @@ export class UsuarioMockRepository extends IUsuarioRepository {
     super();
   }
 
+  obterAll(): Observable<IUsuarioModel[]> {
+    return of();
+  }
+
   obter(model: IUsuarioModel): Observable<IUsuarioModel> {
     return this.http
       .get<IUsuarioMockEntity>(environment.serverUrl + '/usuarios?username=' + model.username + '&senha=' + model.senha + '')
