@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseService } from '../base.service';
 
 @Component({
   selector: 'app-activity-bar',
@@ -8,15 +7,9 @@ import { BaseService } from '../base.service';
 })
 export class ActivityBarComponent implements OnInit {
 
-  constructor(
-    private baseService: BaseService
-  ) { }
+  constructor( ) { }
 
   ngOnInit() {
-  }
-
-  openSidenav() {
-    this.baseService.openSidenav();
   }
 
 }

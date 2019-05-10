@@ -6,7 +6,8 @@ import { ObterAllUsuarioUseCase } from '../../core/usecases/usuario/base/ObterAl
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { ExcluirUsuarioUseCase } from '../../core/usecases/usuario/base/ExcluirUsuarioUseCase';
 import { MatTableDataSource } from '@angular/material';
-import { BaseNotification } from '../base/base.notification';
+import { ToastService } from 'ngx-praxio-ui';
+import { ValidationError } from 'ts.validator.fluent/dist';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { BaseNotification } from '../base/base.notification';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends BaseNotification implements OnInit {
+export class HomeComponent implements OnInit {
 
   isLoading = false;
   dataSource: any;
@@ -22,11 +23,10 @@ export class HomeComponent extends BaseNotification implements OnInit {
   displayedColumns: string[];
 
   constructor(
+    private toast: ToastService,
     private obterAllUsuarioUseCase: ObterAllUsuarioUseCase,
     private excluirUsuarioUseCase: ExcluirUsuarioUseCase
-  ) {
-    super();
-  }
+  ) { }
 
   ngOnInit() {
     this.obterAllUsuario();
@@ -64,6 +64,18 @@ export class HomeComponent extends BaseNotification implements OnInit {
       this.dataSource = new MatTableDataSource(this.usuarios);
 
     }, err => this.errorHandler(err));
+  }
+
+  errorHandler(err) {
+    const erros: string[] = [];
+
+    _.forEach(err, (x: ValidationError) => {
+      const msg = x.Message;
+
+      erros.push(msg + '<br>');
+    });
+
+    this.toast.open(_.join(erros, ' '));
   }
 
 }
