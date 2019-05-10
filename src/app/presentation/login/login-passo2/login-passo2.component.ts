@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import * as _ from 'lodash';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
+import { AuthenticationService } from '../../../infra/authentication/authentication.service';
 
 @Component({
   selector: 'app-login-passo2',
@@ -12,10 +13,9 @@ import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 export class LoginPasso2Component implements OnInit {
   @Input() usuario: IUsuarioModel;
 
-  @Output() changeLogout = new EventEmitter<any>();
-
   constructor(
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class LoginPasso2Component implements OnInit {
   }
 
   logout() {
-    this.changeLogout.emit();
+    this.authenticationService.logout();
   }
 
 }

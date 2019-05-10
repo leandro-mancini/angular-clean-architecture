@@ -13,25 +13,16 @@ const log = new Logger('Login');
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  usuario: IUsuarioModel;
 
   constructor(
     private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
-    this.logout();
   }
 
-  changeLogin(credentials: IUsuarioModel) {
-    this.usuario = credentials;
-
-    log.debug(`${credentials.username} logado com sucesso`);
-  }
-
-  logout() {
-    this.authenticationService.logout();
-    this.usuario = null;
+  get usuario(): IUsuarioModel {
+    return this.authenticationService.getCredentials;
   }
 
 }

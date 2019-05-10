@@ -4,9 +4,9 @@ import { finalize } from 'rxjs/operators';
 import { ToastService } from 'ngx-praxio-ui';
 import * as _ from 'lodash';
 
-import { ValidationError } from 'ts.validator.fluent/dist';
 import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
+import { NotificationToast } from '@app/presentation/notification/notification.toast';
 
 @Component({
   selector: 'app-login-passo1',
@@ -21,6 +21,7 @@ export class LoginPasso1Component implements OnInit {
   isLoading = false;
 
   constructor(
+    private notificationToast: NotificationToast,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private toast: ToastService
@@ -48,23 +49,11 @@ export class LoginPasso1Component implements OnInit {
     .subscribe((usuario: IUsuarioModel) => {
       if (usuario) {
         this.authenticationService.setCredentials(usuario);
-        this.changeLogin.emit(usuario);
+        // this.changeLogin.emit(usuario);
       } else {
         this.toast.open('Usuário ou senha inválidos.');
       }
-    }, err => this.errorHandler(err));
-  }
-
-  errorHandler(err) {
-    const erros: string[] = [];
-
-    _.forEach(err, (x: ValidationError) => {
-      const msg = x.Message;
-
-      erros.push(msg + '<br>');
-    });
-
-    this.toast.open(_.join(erros, ' '));
+    }, err => this.notificationToast.error(err));
   }
 
 }
