@@ -42,10 +42,14 @@ export class UsuarioMockRepository extends IUsuarioRepository {
   }
 
   inserir(model: IUsuarioModel): Observable<IUsuarioModel> {
-    return of();
+    return this.http
+      .post<IUsuarioMockEntity>(environment.serverUrl + '/usuarios', model)
+      .pipe(map(this.mapper.mapFrom));
   }
   alterar(model: IUsuarioModel): Observable<IUsuarioModel> {
-    return of();
+    return this.http
+      .put<IUsuarioMockEntity>(environment.serverUrl + '/usuarios/' + model.id, model)
+      .pipe(map(this.mapper.mapFrom));
   }
   excluir(id: number): Observable<IUsuarioModel> {
     return this.http

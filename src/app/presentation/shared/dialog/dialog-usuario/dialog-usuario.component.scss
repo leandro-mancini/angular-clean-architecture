@@ -1,0 +1,53 @@
+@import 'node_modules/ngx-praxio-ui/theme/app';
+@import 'src/theme/app';
+
+::ng-deep {
+  .mat-dialog-container {
+    padding: 0 !important;
+  }
+}
+
+.px-form {
+  padding: 40px;
+
+  h6 {
+    color: $plt-graffiti-carbon;
+    @include font-tenor;
+    @include font-bold;
+    margin: 0 0 16px 0;
+  }
+
+  .action {
+    margin-top: 40px;
+
+    a {
+      display: block;
+      margin: 40px 0;
+      text-align: center;
+      color: $clr-theme;
+      @include font-rytm;
+    }
+
+    px-button {
+      width: 100%;
+
+      &.px-impact {
+        ::ng-deep {
+          &.px-button {
+            background-color: $clr-theme;
+          }
+        }
+      }
+
+      ::ng-deep {
+        &.px-button {
+          width: 100%;
+
+          .mat-button-wrapper {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

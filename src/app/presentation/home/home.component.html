@@ -1,6 +1,8 @@
 <div class="container">
   <mat-spinner *ngIf="isLoading"></mat-spinner>
 
+  <button *ngIf="!isLoading" mat-raised-button (click)="inserir()" color="primary" class="mt-4 mb-4">Novo usuário</button>
+
   <table *ngIf="!isLoading" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
@@ -22,7 +24,6 @@
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element">
           <button mat-raised-button (click)="alterar(element)">Alterar</button>
-          <button mat-raised-button (click)="inserir()" color="primary">Inserir</button>
           <button mat-raised-button (click)="excluir(element)" color="warn">Excluir</button>
         </td>
       </ng-container>

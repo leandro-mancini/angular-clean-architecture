@@ -5,8 +5,9 @@ import * as _ from 'lodash';
 import { ObterAllUsuarioUseCase } from '../../core/usecases/usuario/base/ObterAllUsuarioUseCase';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { ExcluirUsuarioUseCase } from '../../core/usecases/usuario/base/ExcluirUsuarioUseCase';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { NotificationToast } from '@app/presentation/notification/notification.toast';
+import { DialogUsuarioComponent } from '../shared/dialog/dialog-usuario/dialog-usuario.component';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private notificationToast: NotificationToast,
     private obterAllUsuarioUseCase: ObterAllUsuarioUseCase,
-    private excluirUsuarioUseCase: ExcluirUsuarioUseCase
+    private excluirUsuarioUseCase: ExcluirUsuarioUseCase,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -47,11 +49,11 @@ export class HomeComponent implements OnInit {
   }
 
   alterar(usuario: IUsuarioModel) {
-    console.log(usuario);
+    this.openDialog(usuario);
   }
 
   inserir() {
-    console.log('inserir');
+    this.openDialog();
   }
 
   excluir(params: IUsuarioModel) {
@@ -63,6 +65,27 @@ export class HomeComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.usuarios);
 
     }, err => this.notificationToast.error(err));
+  }
+
+  openDialog(usuario?: IUsuarioModel) {
+    const dialogRef = this.dialog.open(DialogUsuarioComponent, {
+      width: '460px',
+      data: usuario ? usuario : null
+    });
+
+    dialogRef.afterClosed().subscribe((result: IUsuarioModel) => {
+      if (result) {
+        const index = _.findIndex(this.usuarios, ['id', result.id]);
+
+        if (index !== -1) {
+          this.usuarios[index] = result;
+        } else {
+          this.usuarios.push(result);
+        }
+
+        this.dataSource = new MatTableDataSource(this.usuarios);
+      }
+    });
   }
 
 }

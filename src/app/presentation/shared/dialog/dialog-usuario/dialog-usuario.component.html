@@ -1,0 +1,19 @@
+<form class="px-form" [formGroup]="myForm" novalidate>
+  <h6 translate>{{data ? 'Alterar #' + data.id : 'Inserir'}}</h6>
+  <div class="row">
+    <div class="col-12 form-group">
+      <px-input pxSize="lg" label="{{ 'USUARIO' | translate }}" formControlName="username"></px-input>
+    </div>
+    <div class="col-12 form-group">
+      <px-input type="password" pxSize="lg" label="{{ 'SENHA' | translate }}" formControlName="senha"></px-input>
+    </div>
+  </div>
+  <div class="action row">
+    <div class="col">
+      <px-button pxFluid pxSize="lg" (click)="cancel()">Cancelar</px-button>
+    </div>
+    <div class="col">
+      <px-button pxImpact pxSize="lg" (click)="save()">Salvar</px-button>
+    </div>
+  </div>
+</form>
