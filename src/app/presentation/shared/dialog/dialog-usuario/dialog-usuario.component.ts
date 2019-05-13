@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from '@app/data/services/usuario.service';
+import { NotificationToast } from '@app/presentation/notification/notification.toast';
 
 @Component({
   selector: 'app-dialog-usuario',
@@ -17,7 +18,8 @@ export class DialogUsuarioComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUsuarioModel,
     private formBuilder: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private notificationToast: NotificationToast
   ) {
     this.createForm();
   }
@@ -44,18 +46,14 @@ export class DialogUsuarioComponent implements OnInit {
 
   inserir() {
     this.usuarioService.inserir(this.myForm.value).subscribe((resp: any) => {
-      console.log(resp);
-
       this.dialogRef.close(resp);
-    });
+    }, err => this.notificationToast.error(err));
   }
 
   alterar() {
     this.usuarioService.alterar(this.myForm.value).subscribe((resp: any) => {
-      console.log(resp);
-
       this.dialogRef.close(resp);
-    });
+    }, err => this.notificationToast.error(err));
   }
 
 }
