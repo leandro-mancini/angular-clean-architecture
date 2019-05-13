@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import * as _ from 'lodash';
 
-import { ObterAllUsuarioUseCase } from '../../core/usecases/usuario/base/ObterAllUsuarioUseCase';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { ExcluirUsuarioUseCase } from '../../core/usecases/usuario/base/ExcluirUsuarioUseCase';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { NotificationToast } from '@app/presentation/notification/notification.toast';
 import { DialogUsuarioComponent } from '../shared/dialog/dialog-usuario/dialog-usuario.component';
@@ -26,7 +24,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private notificationToast: NotificationToast,
     private usuarioService: UsuarioService,
-    private excluirUsuarioUseCase: ExcluirUsuarioUseCase,
     public dialog: MatDialog
   ) { }
 

@@ -3,11 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { ObterAllUsuarioUseCase } from '@app/core/usecases/usuario/base/ObterAllUsuarioUseCase';
-import { ExcluirUsuarioUseCase } from '@app/core/usecases/usuario/base/ExcluirUsuarioUseCase';
-import { InserirUsuarioUseCase } from '@app/core/usecases/usuario/base/InserirUsuarioUseCase';
-import { AlterarUsuarioUseCase } from '@app/core/usecases/usuario/base/AlterarUsuarioUseCase';
-import { ObterUsuarioUseCase } from '@app/core/usecases/usuario/base/ObterUsuarioUseCase';
+import { UsuarioUseCase } from '@app/core/usecases/usuario/base/UsuarioUseCase';
 
 @Injectable({
   providedIn: 'root'
@@ -15,29 +11,25 @@ import { ObterUsuarioUseCase } from '@app/core/usecases/usuario/base/ObterUsuari
 export class UsuarioService extends IUsuarioRepository {
 
   constructor(
-    private obterAllUsuarioUseCase: ObterAllUsuarioUseCase,
-    private excluirUsuarioUseCase: ExcluirUsuarioUseCase,
-    private inserirUsuarioUseCase: InserirUsuarioUseCase,
-    private alterarUsuarioUseCase: AlterarUsuarioUseCase,
-    private obterUsuarioUseCase: ObterUsuarioUseCase
+    private usuarioUseCase: UsuarioUseCase
   ) {
     super();
   }
 
   obterAll(): Observable<IUsuarioModel> {
-    return this.obterAllUsuarioUseCase.execute();
+    return this.usuarioUseCase.obterAll();
   }
   obter(model: IUsuarioModel): Observable<IUsuarioModel> {
-    return this.obterUsuarioUseCase.execute(model);
+    return this.usuarioUseCase.obter(model);
   }
   inserir(model: IUsuarioModel): Observable<IUsuarioModel> {
-    return this.inserirUsuarioUseCase.execute(model);
+    return this.usuarioUseCase.inserir(model);
   }
   alterar(model: IUsuarioModel): Observable<IUsuarioModel> {
-    return this.alterarUsuarioUseCase.execute(model);
+    return this.usuarioUseCase.alterar(model);
   }
   excluir(id: number): Observable<IUsuarioModel> {
-    return this.excluirUsuarioUseCase.execute(id);
+    return this.usuarioUseCase.excluir(id);
   }
 
 

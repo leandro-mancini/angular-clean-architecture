@@ -1,6 +1,7 @@
 import { ValidationResult } from 'ts.validator.fluent/dist';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 
-export interface IObterUsuarioUseCase {
+export interface IUsuarioUseCase {
   validateFields(model: IUsuarioModel): ValidationResult;
+  validarId(id: number): ValidationResult;
 }
