@@ -37,8 +37,7 @@ export class UsuarioService extends IUsuarioRepository {
     return this.alterarUsuarioUseCase.execute(model);
   }
   excluir(id: number): Observable<IUsuarioModel> {
-    // return this.excluirUsuarioUseCase.execute(id);
-    throw new Error('Method not implemented.');
+    return this.excluirUsuarioUseCase.execute(id);
   }
 
 

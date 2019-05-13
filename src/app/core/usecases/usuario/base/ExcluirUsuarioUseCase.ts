@@ -12,18 +12,18 @@ const log = new Logger('ExcluirUsuarioUseCase');
 @Injectable({
   providedIn: 'root'
 })
-export class ExcluirUsuarioUseCase implements UseCase<IUsuarioModel, IUsuarioModel> {
+export class ExcluirUsuarioUseCase implements UseCase<number, IUsuarioModel> {
 
   constructor(
     private iUsuarioRepository: IUsuarioRepository,
     private excluirUsuarioValidator: ExcluirUsuarioValidator
   ) { }
 
-  execute(params: IUsuarioModel): Observable<IUsuarioModel> {
+  execute(params: number): Observable<IUsuarioModel> {
     const validator = this.excluirUsuarioValidator.validarId(params);
 
     if (validator.IsValid) {
-      return this.iUsuarioRepository.excluir(params.id);
+      return this.iUsuarioRepository.excluir(params);
     } else {
       log.error(validator.Errors);
 

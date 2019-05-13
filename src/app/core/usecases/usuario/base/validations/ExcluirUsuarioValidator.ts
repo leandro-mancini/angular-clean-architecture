@@ -8,13 +8,13 @@ import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
   providedIn: 'root'
 })
 export class ExcluirUsuarioValidator implements IExcluirUsuarioUseCase {
-  validarId(id: IUsuarioModel): ValidationResult {
+  validarId(id: number): ValidationResult {
     return new Validator(id).Validate(this.validateUserIdRules);
   }
 
-  validateUserIdRules = (validator: IValidator<IUsuarioModel>): ValidationResult => {
+  validateUserIdRules = (validator: IValidator<number>): ValidationResult => {
     return validator
-      .IsNumberNotEqual(m => m.id, 0, 'ID é obrigatório.')
+      .IsNumberNotEqual(m => m, 0, 'ID é obrigatório.')
       .ToResult();
   }
 

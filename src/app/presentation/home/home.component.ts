@@ -8,6 +8,7 @@ import { ExcluirUsuarioUseCase } from '../../core/usecases/usuario/base/ExcluirU
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { NotificationToast } from '@app/presentation/notification/notification.toast';
 import { DialogUsuarioComponent } from '../shared/dialog/dialog-usuario/dialog-usuario.component';
+import { UsuarioService } from '@app/data/services/usuario.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private notificationToast: NotificationToast,
-    private obterAllUsuarioUseCase: ObterAllUsuarioUseCase,
+    private usuarioService: UsuarioService,
     private excluirUsuarioUseCase: ExcluirUsuarioUseCase,
     public dialog: MatDialog
   ) { }
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
   obterAllUsuario() {
     this.isLoading = true;
 
-    this.obterAllUsuarioUseCase.execute()
+    this.usuarioService.obterAll()
     .pipe(finalize(() => {
       this.isLoading = false;
     }))
@@ -57,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   excluir(params: IUsuarioModel) {
-    this.excluirUsuarioUseCase.execute(params).subscribe(() => {
+    this.usuarioService.excluir(params.id).subscribe(() => {
       const index = _.findIndex(this.usuarios, params);
 
       this.usuarios.splice(index, 1);
