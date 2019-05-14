@@ -17,6 +17,8 @@ import { IUsuarioRepository } from './core/interfaces/repositories/IUsuarioRepos
 import { UsuarioMockRepository } from './data/repository/usuario/mock/UsuarioMockRepository';
 import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
 import { UsuarioService } from './data/services/usuario.service';
+import { IValidatorMensagem } from './core/interfaces/mensagens/IValidatorMensagem';
+import { ValidatorMensagem } from './core/resources/ValidatorMensagem';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,9 @@ import { UsuarioService } from './data/services/usuario.service';
     },
     {
       provide: IUsuarioService, useClass: UsuarioService
+    },
+    {
+      provide: IValidatorMensagem, useClass: ValidatorMensagem
     }
   ],
   bootstrap: [AppComponent]
