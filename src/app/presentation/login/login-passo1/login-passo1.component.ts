@@ -4,9 +4,10 @@ import { finalize } from 'rxjs/operators';
 import { ToastService } from 'ngx-praxio-ui';
 import * as _ from 'lodash';
 
-import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { NotificationToast } from '@app/presentation/notification/notification.toast';
+import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
+import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 
 @Component({
   selector: 'app-login-passo1',
@@ -24,6 +25,7 @@ export class LoginPasso1Component implements OnInit {
     private notificationToast: NotificationToast,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
+    private iUsuarioService: IUsuarioService,
     private toast: ToastService
   ) {
     this.createForm();
@@ -42,12 +44,13 @@ export class LoginPasso1Component implements OnInit {
   login() {
     this.isLoading = true;
 
-    this.authenticationService.login(this.loginForm.value)
+    this.iUsuarioService.obter(this.loginForm.value)
     .pipe(finalize(() => {
       this.isLoading = false;
     }))
     .subscribe((usuario: IUsuarioModel) => {
       if (usuario) {
+        console.log(usuario);
         this.authenticationService.setCredentials(usuario);
         // this.changeLogin.emit(usuario);
       } else {

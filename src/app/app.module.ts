@@ -15,6 +15,8 @@ import { PresentationModule } from '@app/presentation/presentation.module';
 
 import { IUsuarioRepository } from './core/interfaces/repositories/IUsuarioRepository';
 import { UsuarioMockRepository } from './data/repository/usuario/mock/UsuarioMockRepository';
+import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
+import { UsuarioService } from './data/services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,9 @@ import { UsuarioMockRepository } from './data/repository/usuario/mock/UsuarioMoc
   providers: [
     {
       provide: IUsuarioRepository, useClass: UsuarioMockRepository
+    },
+    {
+      provide: IUsuarioService, useClass: UsuarioService
     }
   ],
   bootstrap: [AppComponent]

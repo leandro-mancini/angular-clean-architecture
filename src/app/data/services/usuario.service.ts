@@ -4,11 +4,12 @@ import { Injectable } from '@angular/core';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { UsuarioUseCase } from '@app/core/usecases/usuario/base/UsuarioUseCase';
+import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService extends IUsuarioRepository {
+export class UsuarioService extends IUsuarioService {
 
   constructor(
     private usuarioUseCase: UsuarioUseCase
