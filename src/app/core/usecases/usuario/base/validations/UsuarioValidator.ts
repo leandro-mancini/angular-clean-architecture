@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { IUsuarioUseCase } from '@app/core/interfaces/usecases/IUsuarioUseCase';
 import { ValidationResult, Validator, IValidator } from 'ts.validator.fluent/dist';
+
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { IValidatorMensagem } from '@app/core/interfaces/mensagens/IValidatorMensagem';
+import { IUsuarioValidator } from '@app/core/interfaces/validations/IUsuarioValidator';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioValidator implements IUsuarioUseCase {
+export class UsuarioValidator implements IUsuarioValidator {
 
   constructor(
     private iValidatorMensagem: IValidatorMensagem
-  ) { }
+  ) {
+  }
 
   validateFields(model: IUsuarioModel): ValidationResult {
     return new Validator(model).Validate(this.validateUserRules);

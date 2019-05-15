@@ -1,9 +1,10 @@
-import { UseCaseCrud } from '@app/core/base/usecase-crud';
-import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { Observable, throwError } from 'rxjs';
-import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
 import { Injectable } from '@angular/core';
-import { UsuarioValidator } from './validations/UsuarioValidator';
+import { Observable, throwError } from 'rxjs';
+
+import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
+import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
+import { IUsuarioUseCase } from '@app/core/interfaces/usecases/IUsuarioUseCase';
+import { IUsuarioValidator } from '@app/core/interfaces/validations/IUsuarioValidator';
 import { Logger } from '@app/infra/log/logger.service';
 
 const log = new Logger('UsuarioUseCase');
@@ -11,18 +12,18 @@ const log = new Logger('UsuarioUseCase');
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioUseCase implements UseCaseCrud<IUsuarioModel, IUsuarioModel> {
+export class UsuarioUseCase implements IUsuarioUseCase<IUsuarioModel, IUsuarioModel> {
 
   constructor(
     private iUsuarioRepository: IUsuarioRepository,
-    private usuarioValidator: UsuarioValidator
+    private iUsuarioValidator: IUsuarioValidator
   ) { }
 
   obterAll(params: void): Observable<IUsuarioModel> {
     return this.iUsuarioRepository.obterAll();
   }
   obter(params: IUsuarioModel): Observable<IUsuarioModel> {
-    const validator = this.usuarioValidator.validateFields(params);
+    const validator = this.iUsuarioValidator.validateFields(params);
 
     if (validator.IsValid) {
       return this.iUsuarioRepository.obter(params);
@@ -33,7 +34,7 @@ export class UsuarioUseCase implements UseCaseCrud<IUsuarioModel, IUsuarioModel>
     }
   }
   inserir(params: IUsuarioModel): Observable<IUsuarioModel> {
-    const validator = this.usuarioValidator.validateFields(params);
+    const validator = this.iUsuarioValidator.validateFields(params);
 
     if (validator.IsValid) {
       return this.iUsuarioRepository.inserir(params);
@@ -44,7 +45,7 @@ export class UsuarioUseCase implements UseCaseCrud<IUsuarioModel, IUsuarioModel>
     }
   }
   alterar(params: IUsuarioModel): Observable<IUsuarioModel> {
-    const validator = this.usuarioValidator.validateFields(params);
+    const validator = this.iUsuarioValidator.validateFields(params);
 
     if (validator.IsValid) {
       return this.iUsuarioRepository.alterar(params);
@@ -55,7 +56,7 @@ export class UsuarioUseCase implements UseCaseCrud<IUsuarioModel, IUsuarioModel>
     }
   }
   excluir(params: number): Observable<IUsuarioModel> {
-    const validator = this.usuarioValidator.validarId(params);
+    const validator = this.iUsuarioValidator.validarId(params);
 
     if (validator.IsValid) {
       return this.iUsuarioRepository.excluir(params);

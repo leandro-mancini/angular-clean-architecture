@@ -1,7 +1,9 @@
-import { ValidationResult } from 'ts.validator.fluent/dist';
-import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
+import { Observable } from 'rxjs';
 
-export interface IUsuarioUseCase {
-  validateFields(model: IUsuarioModel): ValidationResult;
-  validarId(id: number): ValidationResult;
+export interface IUsuarioUseCase<S, T> {
+  obterAll(params: void): Observable<T>;
+  obter(params: S): Observable<T>;
+  inserir(params: S): Observable<T>;
+  alterar(params: S): Observable<T>;
+  excluir(params: number): Observable<T>;
 }

@@ -19,6 +19,8 @@ import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
 import { UsuarioService } from './data/services/usuario.service';
 import { IValidatorMensagem } from './core/interfaces/mensagens/IValidatorMensagem';
 import { ValidatorMensagem } from './core/resources/ValidatorMensagem';
+import { UsuarioValidator } from './core/usecases/usuario/base/validations/UsuarioValidator';
+import { IUsuarioValidator } from './core/interfaces/validations/IUsuarioValidator';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,9 @@ import { ValidatorMensagem } from './core/resources/ValidatorMensagem';
     },
     {
       provide: IValidatorMensagem, useClass: ValidatorMensagem
+    },
+    {
+      provide: IUsuarioValidator, useClass: UsuarioValidator
     }
   ],
   bootstrap: [AppComponent]
