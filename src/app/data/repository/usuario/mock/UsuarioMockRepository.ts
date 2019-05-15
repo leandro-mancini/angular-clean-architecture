@@ -12,15 +12,13 @@ import { UsuarioMockMapper } from './UsuarioMockMapper';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioMockRepository extends IUsuarioRepository {
+export class UsuarioMockRepository implements IUsuarioRepository {
 
   private mapper = new UsuarioMockMapper();
 
   constructor(
     private http: HttpClient
-  ) {
-    super();
-  }
+  ) { }
 
   obterAll(): Observable<IUsuarioModel> {
     return this.http

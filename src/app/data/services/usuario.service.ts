@@ -9,13 +9,11 @@ import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService extends IUsuarioService {
+export class UsuarioService implements IUsuarioService {
 
   constructor(
     private usuarioUseCase: UsuarioUseCase
-  ) {
-    super();
-  }
+  ) { }
 
   obterAll(): Observable<IUsuarioModel> {
     return this.usuarioUseCase.obterAll();

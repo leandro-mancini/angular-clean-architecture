@@ -6,13 +6,11 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ValidatorMensagem extends IValidatorMensagem {
+export class ValidatorMensagem implements IValidatorMensagem {
 
   constructor(
     private translate: TranslateService
-  ) {
-    super();
-  }
+  ) { }
 
   idNaoEncontrado(): any {
     return this.translate.get('VALIDATOR.IdNaoEncontrado');
