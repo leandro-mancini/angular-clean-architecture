@@ -4,9 +4,9 @@ import { MatTableDataSource, MatDialog } from '@angular/material';
 import * as _ from 'lodash';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { NotificationToast } from '@app/presentation/notification/notification.toast';
-import { DialogUsuarioComponent } from '../shared/dialog/dialog-usuario/dialog-usuario.component';
+import { NotificationToast } from '@app/presentation/shared/notification/notification.toast';
 import { UsuarioService } from '@app/data/services/usuario.service';
+import { DialogUsuarioComponent } from '@app/presentation/shared/dialog/dialog-usuario/dialog-usuario.component';
 
 
 @Component({

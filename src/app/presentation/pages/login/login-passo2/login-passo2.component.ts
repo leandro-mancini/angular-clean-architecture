@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import * as _ from 'lodash';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { AuthenticationService } from '../../../infra/authentication/authentication.service';
+import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 
 @Component({
   selector: 'app-login-passo2',

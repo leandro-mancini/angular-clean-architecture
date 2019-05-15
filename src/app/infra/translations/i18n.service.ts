@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { includes } from 'lodash';
-import { Logger } from '../log/logger.service';
+
+import { Logger } from '@app/infra/log/logger.service';
+
 
 const log = new Logger('I18nService');
 const languageKey = 'language';

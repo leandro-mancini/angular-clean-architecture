@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home.component';
-import { Route } from '../route.service';
 import { extract } from '@app/infra/translations/i18n.service';
+import { Route } from '@app/presentation/route.service';
+import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   Route.withShell([

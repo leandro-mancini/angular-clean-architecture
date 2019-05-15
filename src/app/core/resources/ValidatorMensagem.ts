@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { IValidatorMensagem } from '../interfaces/mensagens/IValidatorMensagem';
+import { IValidatorMensagem } from '@app/core/interfaces/mensagens/IValidatorMensagem';
+
 
 @Injectable({
   providedIn: 'root'

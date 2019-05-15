@@ -5,7 +5,7 @@ import { ToastService } from 'ngx-praxio-ui';
 import * as _ from 'lodash';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { NotificationToast } from '@app/presentation/notification/notification.toast';
+import { NotificationToast } from '@app/presentation/shared/notification/notification.toast';
 import { IUsuarioService } from '@app/core/interfaces/services/IUsuarioService';
 import { AuthenticationService } from '@app/infra/authentication/authentication.service';
 
