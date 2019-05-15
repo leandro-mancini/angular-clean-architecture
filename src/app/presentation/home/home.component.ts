@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import * as _ from 'lodash';
 
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
-import { MatTableDataSource, MatDialog } from '@angular/material';
 import { NotificationToast } from '@app/presentation/notification/notification.toast';
 import { DialogUsuarioComponent } from '../shared/dialog/dialog-usuario/dialog-usuario.component';
 import { UsuarioService } from '@app/data/services/usuario.service';

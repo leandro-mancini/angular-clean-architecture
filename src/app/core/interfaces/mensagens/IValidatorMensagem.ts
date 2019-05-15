@@ -1,5 +1,3 @@
-import { Observable } from 'rxjs';
-
 export abstract class IValidatorMensagem {
   abstract idNaoEncontrado(): any;
   abstract intervaloCaracteres(campo: string, caracteresInicial: number, caracteresFinal: number): any;

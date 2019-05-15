@@ -1,4 +1,3 @@
-import { IUsuarioRepository } from '@app/core/interfaces/repositories/IUsuarioRepository';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 

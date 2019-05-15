@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-
 import * as _ from 'lodash';
+
 import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { AuthenticationService } from '../../../infra/authentication/authentication.service';
 

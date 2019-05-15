@@ -1,7 +1,7 @@
 import { Route as ngRoute, Routes } from '@angular/router';
+
 import { BaseComponent } from './base/base.component';
 import { RouteGuard } from './route.guard';
-
 
 /**
  * Provides helper methods to create routes.

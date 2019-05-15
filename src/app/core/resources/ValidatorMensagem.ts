@@ -1,7 +1,7 @@
-import { IValidatorMensagem } from '../interfaces/mensagens/IValidatorMensagem';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+
+import { IValidatorMensagem } from '../interfaces/mensagens/IValidatorMensagem';
 
 @Injectable({
   providedIn: 'root'

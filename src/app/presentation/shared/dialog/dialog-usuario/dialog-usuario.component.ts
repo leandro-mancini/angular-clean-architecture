@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { IUsuarioModel } from '@app/core/domain/entities/usuario.model';
 import { UsuarioService } from '@app/data/services/usuario.service';
 import { NotificationToast } from '@app/presentation/notification/notification.toast';
 
