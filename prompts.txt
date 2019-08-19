@@ -1,9 +1,0 @@
-{
-    gerador
-    gerador
-    true
-    false
-    
-    
-    npm run env -s
-}
