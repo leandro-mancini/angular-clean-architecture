@@ -1,0 +1,90 @@
+<div class="container mt-4 mb-4">
+  <div class="row justify-content-end m-0 mb-4">
+    <button class="btn-new-driver" mat-raised-button color="primary" (click)="newDriver()">{{ 'TXT_NOVO_MOTORISTA' | translate }}</button>
+  </div>
+
+  <div class="mat-elevation-z8" fxHide.xs fxHide.sm>
+    <mat-table [dataSource]="dataSource" *ngIf="!isLoading">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>{{ 'TXT_NOME' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="name"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef>{{ 'TXT_TELEFONE' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="phone"> {{element.phone ? element.phone : '-'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="birth_date">
+        <mat-header-cell *matHeaderCellDef>{{ 'TXT_DATA_NASCIMENTO' | translate }}:</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="birth_date"> {{element.birth_date | date : 'dd/MM/yyyy'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="documents">
+        <mat-header-cell *matHeaderCellDef>{{ 'TXT_DOCUMENTO' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="documents">
+          <div class="row mt-2 mb-2">
+            <div class="col" *ngFor="let item of element.documents">
+              <h6 class="m-0">{{item.doc_type}}</h6>
+              <p class="m-0">
+                {{item.number}}
+                <span *ngIf="item.category">/ {{item.category}}</span>
+              </p>
+            </div>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>{{ 'TXT_ACOES' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="birth_date">
+          <button class="btn-edit" mat-icon-button color="accent" matTooltip="{{ 'TXT_ACOES' | translate }}" matTooltipPosition="above"
+            (click)="edit(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button class="btn-enable" mat-icon-button color="{{element.enable ? 'primary' : 'warn'}}" 
+            matTooltip="{{element.enable ? 'Ativar' : 'Inativar'}}" 
+            matTooltipPosition="above"
+            (click)="disableEnable(element)">
+            <mat-icon>{{element.enable ? 'check_circle_outline' : 'block'}}</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <mat-card class="card-list" fxHide.md fxHide.lg fxHide.xl *ngFor="let item of drivers">
+    <mat-card-header>
+      <mat-card-title>{{item.name}}</mat-card-title>
+      <mat-card-subtitle>{{ 'TXT_DATA_NASCIMENTO' | translate }}: {{item.birth_date | date : 'dd/MM/yyyy'}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="item.phone">{{ 'TXT_TELEFONE' | translate }}: {{item.phone}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h6>{{ 'TXT_DOCUMENTO' | translate }}:</h6>
+      <div class="row mt-2 mb-2">
+        <div class="col" *ngFor="let doc of item.documents">
+          <h6 class="m-0">{{doc.doc_type}}</h6>
+          <p class="m-0">
+            {{doc.number}}
+            <span *ngIf="doc.category">/ {{doc.category}}</span>
+          </p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button
+        (click)="edit(item)">
+        <mat-icon>edit</mat-icon> {{ 'TXT_EDITAR' | translate }}
+      </button>
+
+      <button mat-button (click)="disableEnable(item)">
+        <mat-icon>{{item.enable ? 'check_circle_outline' : 'block'}}</mat-icon>
+        {{item.enable ? 'Ativar' : 'Inativar'}}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

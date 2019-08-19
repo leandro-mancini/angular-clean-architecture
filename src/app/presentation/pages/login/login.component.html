@@ -1,0 +1,24 @@
+<section>
+  <div class="container">
+    <h3>{{ 'TXT_ENTRAR' | translate }}</h3>
+    <form [formGroup]="form" (ngSubmit)="login()" novalidate>
+      <div class="row">
+        <div class="col-12">
+          <app-input formControlName="username"
+            t-type="text"
+            t-label="{{ 'TXT_USUARIO' | translate }}">
+          </app-input>
+        </div>
+        <div class="col-12">
+          <app-input formControlName="password"
+            t-type="password"
+            t-label="{{ 'TXT_SENHA' | translate }}">
+          </app-input>
+        </div>
+      </div>
+      <div class="row justify-content-end m-0">
+        <button mat-raised-button color="primary">{{ 'TXT_ENTRAR' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</section>

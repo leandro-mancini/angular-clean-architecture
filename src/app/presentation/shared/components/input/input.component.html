@@ -1,0 +1,9 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{label}}</mat-label>
+  <input matInput
+    [type]="type"
+    [value]="value"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    (input)="change.emit($event); changeInput($event.target.value)">
+</mat-form-field>

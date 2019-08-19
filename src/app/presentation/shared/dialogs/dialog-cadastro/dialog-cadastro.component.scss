@@ -1,0 +1,24 @@
+.mat-dialog-actions {
+  padding: 24px 0;
+}
+
+.t-input-category {
+  ::ng-deep {
+    .mat-input-element {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.t-radio-group {
+  display: flex;
+  margin: 15px 0;
+
+  .t-radio-button {
+    margin-right: 15px;
+  }
+}
+
+.t-btn-add {
+  margin: 6px 0;
+}

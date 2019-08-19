@@ -1,0 +1,22 @@
+.menu-card {
+  max-width: 400px;
+
+  .mat-card-header {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.menu-card-header-image {
+  background-image: url('src/assets/images/img-avatar.jpg');
+  background-size: cover;
+  background-color: #ccc;
+}
+
+::ng-deep {
+  .menu-user {
+    .mat-menu-content:not(:empty) {
+      padding: 0;
+    }
+  }
+}

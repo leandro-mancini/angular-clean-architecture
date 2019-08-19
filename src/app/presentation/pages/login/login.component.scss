@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex: 1;
+
+  section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    .container {
+      max-width: 362px;
+    }
+  }
+}

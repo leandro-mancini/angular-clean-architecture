@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>{{data ? 'Editar Motorista #' + data.id : 'TXT_CADASTRAR_MOTORISTA' | translate}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+    <div class="row">
+      <div class="col-12 col-md-5">
+        <app-input formControlName="name"
+          t-type="text"
+          t-label="{{ 'TXT_NOME' | translate }}">
+        </app-input>
+      </div>
+      <div class="col-12 col-md-4">
+        <app-input formControlName="birth_date"
+          t-type="date"
+          t-label="{{ 'TXT_DATA_NASCIMENTO' | translate }}"
+          t-placeholder="">
+        </app-input>
+      </div>
+      <div class="col-12 col-md-3">
+        <app-input formControlName="phone"
+          t-type="text"
+          t-label="{{ 'TXT_TELEFONE' | translate }}">
+        </app-input>
+      </div>
+      <div class="col-12" formArrayName="documents" *ngFor="let item of form.controls['documents']['controls']; let i = index;">
+        <div class="row" [formGroupName]="i">
+          <div class="col-12">
+            <label>{{ 'TXT_TIPO_DOCUMENTO' | translate }}:</label>
+            <mat-radio-group class="t-radio-group" formControlName="doc_type">
+              <mat-radio-button class="t-radio-button" value="CPF">{{ 'TXT_CPF' | translate }}</mat-radio-button>
+              <mat-radio-button class="t-radio-button" value="CNH">{{ 'TXT_CNH' | translate }}</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="col-12 row m-0" *ngIf="item.get('doc_type').value">
+            <div class="pl-0"
+              [ngClass]="{ 'col-8' : item.get('doc_type').value == 'CNH', 'col-12 pr-0' : item.get('doc_type').value == 'CPF' }">
+              <app-input class="t-input-number" formControlName="number"
+                t-type="text"
+                t-label="{{ 'TXT_NUMERO' | translate }}">
+              </app-input>
+            </div>
+            <div class="col-4 pr-0" *ngIf="item.get('doc_type').value == 'CNH'">
+              <app-input class="t-input-category" formControlName="category"
+                t-type="text"
+                t-label="{{ 'TXT_CATEGORIA' | translate }}">
+              </app-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="justify-content-between">
+  <button type="button" mat-raised-button color="warn" [mat-dialog-close]>{{ 'TXT_CANCELAR' | translate }}</button>
+  <button type="submit" mat-raised-button color="primary" (click)="save()">{{ 'TXT_SALVAR' | translate }}</button>
+</div>

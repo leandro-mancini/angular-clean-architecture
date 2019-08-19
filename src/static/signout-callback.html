@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Signout Callback</title>
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.png">
+  <script src="oidc-client.min.js"
+          type="application/javascript"></script>
+</head>
+
+<body>
+  <script>
+    var Oidc = window.Oidc;
+    var isPopupCallback = JSON.parse(window.localStorage.getItem('ngoidc:isPopupCallback'));
+    if (isPopupCallback) {
+      new Oidc.UserManager().signoutPopupCallback();
+    } else {
+      new Oidc.UserManager().signoutRedirectCallback().then(test => {
+        window.location.href = '/';
+      });
+    }
+  </script>
+</body>
+
+</html>
