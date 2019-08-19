@@ -136,7 +136,7 @@ npm run test
 
 <br>
 
-![N|Solid](print-test.png)
+![N|Solid](print-ng-test.png)
 
 ## Executando teste end-to-end
 
@@ -156,4 +156,4 @@ npm run e2e
 
 4. Execute o arquivo `cucumber_reporter.html` para poder visualizar um dashboard do cucumber dos steps de cada teste.
 
-![N|Solid](print-test-end-to-end.png)
+![N|Solid](print-ng-e2e.png)

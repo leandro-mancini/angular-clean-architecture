@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './http/http-interceptor.service';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,13 @@ import { HttpClient } from '@angular/common/http';
         deps: [ HttpClient ]
       }
     }),
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
   ]
 })
 export class InfraModule { }
