@@ -1,13 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import * as _ from 'lodash';
 
 import { IMotoristaController } from 'src/app/core/interfaces/controllers/imotorista-controller';
-import { finalize } from 'rxjs/operators';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NotificationService } from '../../notification/notification.service';
-import { MotoristaModel } from '../../../../core/domain/entity/motorista-model';
 import { DocumentsModel } from 'src/app/core/domain/entity/documents-model';
+import { MotoristaModel } from 'src/app/core/domain/entity/motorista-model';
 
 @Component({
   selector: 'app-dialog-cadastro',

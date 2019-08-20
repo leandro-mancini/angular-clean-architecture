@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
-
-import { IUsuarioController } from '../../../core/interfaces/controllers/iusuario-controller';
-import { UsuarioModel } from '../../../core/domain/entity/usuario-model';
-import { AuthService } from '../../../infra/auth/auth.service';
 import { Router } from '@angular/router';
-import { NotificationService } from '../../shared/notification/notification.service';
 import { ValidationError } from 'ts.validator.fluent/dist';
+
+import { AuthService } from 'src/app/infra/auth/auth.service';
+import { IUsuarioController } from 'src/app/core/interfaces/controllers/iusuario-controller';
+import { NotificationService } from '../../shared/notification/notification.service';
+import { UsuarioModel } from 'src/app/core/domain/entity/usuario-model';
 
 @Component({
   selector: 'app-login',
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       (usuario: UsuarioModel) => this.loginResponse(usuario),
       (err: ValidationError[]) => this.notification.open(err)
     );
- 
+
   }
 
   loginResponse(usuario: UsuarioModel) {
@@ -65,6 +65,6 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-  
+
 
 }
