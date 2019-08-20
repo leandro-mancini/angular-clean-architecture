@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PagesModule } from './pages/pages.module';
-import { SharedModule } from './shared/shared.module';
-import { BaseModule } from './base/base.module';
+import { ViewModule } from './view/view.module';
 import { IUsuarioController } from '../core/interfaces/controllers/iusuario-controller';
 import { UsuarioControllerService } from './controllers/usuario/usuario-controller.service';
 import { IMotoristaController } from '../core/interfaces/controllers/imotorista-controller';
@@ -13,11 +11,9 @@ import { MotoristaControllerService } from './controllers/motorista/motorista-co
   declarations: [],
   imports: [
     CommonModule,
-    BaseModule,
-    PagesModule,
-    SharedModule
+    ViewModule
   ],
-  exports: [PagesModule],
+  exports: [ViewModule],
   providers: [
     { provide: IUsuarioController, useClass: UsuarioControllerService },
     { provide: IMotoristaController, useClass: MotoristaControllerService },
