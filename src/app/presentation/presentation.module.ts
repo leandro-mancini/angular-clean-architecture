@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PresentationGeneratedModule } from './presentation-generated.module';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { BaseModule } from './base/base.module';
@@ -14,7 +13,6 @@ import { MotoristaControllerService } from './controllers/motorista/motorista-co
   declarations: [],
   imports: [
     CommonModule,
-    PresentationGeneratedModule,
     BaseModule,
     PagesModule,
     SharedModule

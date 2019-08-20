@@ -46,33 +46,33 @@ npm run server
 
 ````
 | - app
-  | - core
-    | - domain
-      | - [+] entity
-    | - interfaces
-      | - [+] controllers
-      | - [+] entity
-      | - [+] message
-      | - [+] repository
-      | - [+] usecases
-      | - [+] validations
-    | - [+] message
-    | - [+] usecases
-    | - core.module.ts
-  | - data
-    | - [+] repository
-    | - data.module.ts
-  | - infra
-    | - [+] auth
-    | - [+] http
-    | - [+] translations
-    | - infra.module.ts
-  | - presentation
-    | - [+] base
-    | - [+] controllers
-    | - [+] pages
-    | - [+] shared
-    | - presentation.module.ts
+| | - core
+| | | - domain
+| | | | - [+] entity
+| | | - interfaces
+| | | | - [+] controllers
+| | | | - [+] entity
+| | | | - [+] message
+| | | | - [+] repository
+| | | | - [+] usecases
+| | | | - [+] validations
+| | | - [+] message
+| | | - [+] usecases
+| | | - core.module.ts
+| | - data
+| | | - [+] repository
+| | | - data.module.ts
+| | - infra
+| | | - [+] auth
+| | | - [+] http
+| | | - [+] translations
+| | | - infra.module.ts
+| | - presentation
+| | | - [+] base
+| | | - [+] controllers
+| | | - [+] pages
+| | | - [+] shared
+| | | - presentation.module.ts
 ````
 
 ### Principais tarefas
@@ -113,7 +113,7 @@ Os processos de desenvolvimento, construção e qualidade são baseados em scrip
 - [Lodash](https://lodash.com)
 - [Moment](https://momentjs.com)
 - [AutoMapper](https://github.com/loedeman/AutoMapper)
-- [Fluent validator](https://github.com/markusbohl/fluent-ts-validator)
+- [Fluent validator](https://github.com/VeritasSoftware/ts.validator)
 - [Jasmine](https://jasmine.github.io)
 - [chai](https://www.chaijs.com)
 - [Cucumber](https://cucumber.io)

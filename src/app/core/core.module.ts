@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreGeneratedModule } from './core-generated.module';
 import { IValidatorMessage } from './interfaces/message/ivalidator-message';
 import { ValidatorMessageService } from './message/validator-message.service';
 import { IUsuarioUseCase } from './interfaces/usecases/iusuario-use-case';
@@ -16,8 +15,7 @@ import { MotoristaValidatorService } from './validations/motorista/motorista-val
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    CoreGeneratedModule
+    CommonModule
   ],
   providers: [
     { provide: IValidatorMessage, useClass: ValidatorMessageService },
