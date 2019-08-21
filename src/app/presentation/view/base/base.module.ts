@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { BaseComponent } from './base.component';
-import { AppMaterialModule } from '../../app-material.module';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 @NgModule({
   declarations: [BaseComponent],

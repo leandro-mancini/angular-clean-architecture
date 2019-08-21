@@ -19,7 +19,7 @@ export class UsuarioRepository implements IUsuarioRepository {
     const usuario = this.mapper.mapTo(param);
 
     return this.http
-      .get<UsuarioModel>(environment.serverUrl + '/usufdsfsdarios?username=' + usuario.username + '&password=' + usuario.password + '')
+      .get<UsuarioModel>(environment.serverUrl + '/usuarios?username=' + usuario.username + '&password=' + usuario.password + '')
       .pipe(map((item) => {
         if (item[0]) {
           return this.mapper.mapFrom(item[0]);
