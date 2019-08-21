@@ -21,7 +21,7 @@ export class DialogCadastroComponent implements OnInit {
   isLoading: boolean;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) private data: MotoristaModel,
+    @Inject(MAT_DIALOG_DATA) public data: MotoristaModel,
     private motoristaController: IMotoristaController,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<DialogCadastroComponent>,
