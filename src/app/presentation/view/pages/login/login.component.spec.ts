@@ -5,12 +5,12 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NotificationService } from '../../shared/notification/notification.service';
 import { SharedModule } from '../../shared/shared.module';
-import { IUsuarioController } from '../../../core/interfaces/controllers/iusuario-controller';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuarioModel } from 'src/app/core/domain/entity/usuario-model';
 import { of, throwError } from 'rxjs';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { IUsuarioController } from 'src/app/core/interfaces/controllers/iusuario-controller';
 
 describe('Component: Login', () => {
   let component: LoginComponent;

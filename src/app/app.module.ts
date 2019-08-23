@@ -17,12 +17,13 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CoreModule,
     DataModule,
     InfraModule,
-    PresentationModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    PresentationModule
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
