@@ -117,6 +117,7 @@ Os processos de desenvolvimento, construção e qualidade são baseados em scrip
 - [Jasmine](https://jasmine.github.io)
 - [chai](https://www.chaijs.com)
 - [Cucumber](https://cucumber.io)
+- [Storybook](https://storybook.js.org)
 
 ## Executando teste de unidade
 
