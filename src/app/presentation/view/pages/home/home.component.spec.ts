@@ -4,12 +4,12 @@ import { HomeComponent } from './home.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { IMotoristaController } from 'src/app/core/interfaces/controllers/imotorista-controller';
 import { of, Observable } from 'rxjs';
-import { MotoristaModel } from '../../../core/domain/entity/motorista-model';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../../shared/shared.module';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogCadastroComponent } from '../../shared/dialogs/dialog-cadastro/dialog-cadastro.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MotoristaModel } from 'src/app/core/domain/entity/motorista-model';
 
 class MatDialogMock {
   // When the component calls this.dialog.open(...) we'll return an object
