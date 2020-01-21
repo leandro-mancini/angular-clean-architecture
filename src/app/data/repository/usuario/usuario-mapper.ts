@@ -1,21 +1,23 @@
 import * as automapper from 'automapper-ts';
 
 import { Mapper } from '../../base/mapper';
-import { UsuarioModel } from '../../../core/domain/entity/usuario-model';
 import { IUsuarioRequestEntity } from './iusuario-request-entity';
 import { IUsuarioResponseEntity } from './iusuario-response-entity';
-export class UsuarioMapper extends Mapper<IUsuarioRequestEntity, IUsuarioResponseEntity, UsuarioModel> {
-  mapFrom(param: IUsuarioResponseEntity): UsuarioModel {
-    automapper.createMap('UsuarioModel', UsuarioModel);
+import { UserEntity } from '../../../domain/entities/user-entity';
+export class UsuarioMapper implements Mapper<UserEntity, UserEntity> {
+  mapFrom(param: UserEntity): UserEntity {
+    automapper.createMap('UserEntity', UserEntity);
 
-    return automapper.map('UsuarioModel', UsuarioModel, param);
+    return automapper.map('UserEntity', UserEntity, param);
   }
 
-  mapTo(param: UsuarioModel): IUsuarioRequestEntity {
+  mapTo(param: UserEntity): UserEntity {
     automapper
-      .createMap('IUsuarioRequestEntity', IUsuarioRequestEntity);
+      .createMap('UserEntity', UserEntity);
 
-    return automapper.map('IUsuarioRequestEntity', IUsuarioRequestEntity, param);
+      return automapper.map('UserEntity', UserEntity, param);
   }
+
+
 
 }

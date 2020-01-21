@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IUsuarioController } from 'src/app/domain/interfaces/controllers/iusuario-controller';
+import { IUsuarioUseCase } from 'src/app/domain/interfaces/usecases/iusuario-use-case';
+import { UserEntity } from '../../../domain/entities/user-entity';
 
-import { UsuarioModel } from 'src/app/core/domain/entity/usuario-model';
-import { IUsuarioUseCase } from 'src/app/core/interfaces/usecases/iusuario-use-case';
-import { IUsuarioController } from 'src/app/core/interfaces/controllers/iusuario-controller';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class UsuarioControllerService implements IUsuarioController {
     private usuarioUseCase: IUsuarioUseCase
   ) { }
 
-  
-  login(param: UsuarioModel): Observable<UsuarioModel> {
+
+  login(param: UserEntity): Observable<UserEntity> {
     return this.usuarioUseCase.login(param);
   }
 

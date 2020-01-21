@@ -3,11 +3,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import * as _ from 'lodash';
 
-import { IMotoristaController } from 'src/app/core/interfaces/controllers/imotorista-controller';
 import { finalize } from 'rxjs/operators';
-import { MotoristaModel } from 'src/app/core/domain/entity/motorista-model';
 import { MatDialog } from '@angular/material';
 import { DialogCadastroComponent } from '../../shared/dialogs/dialog-cadastro/dialog-cadastro.component';
+import { DriverEntity } from '../../../../domain/entities/driver-entity';
+import { IMotoristaController } from 'src/app/domain/interfaces/controllers/imotorista-controller';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   isLoading: boolean;
-  drivers: MotoristaModel[] = [];
+  drivers: DriverEntity[] = [];
   displayedColumns: string[] = ['name', 'phone', 'birth_date', 'documents', 'action'];
   dataSource: any;
 
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     .pipe(finalize(() => {
       this.isLoading = false;
     }))
-    .subscribe((driver: MotoristaModel) => {
+    .subscribe((driver: DriverEntity) => {
       this.drivers.push(driver);
       this.dataSource = new MatTableDataSource(this.drivers);
     });
@@ -50,17 +50,17 @@ export class HomeComponent implements OnInit {
     this.openDialog();
   }
 
-  edit(param: MotoristaModel) {
+  edit(param: DriverEntity) {
     this.openDialog(param);
   }
 
-  disableEnable(param: MotoristaModel) {
+  disableEnable(param: DriverEntity) {
     param.enable = !param.enable;
 
     this.motoristaController.disableEnable(param.id, param.enable);
   }
 
-  openDialog(driver?: MotoristaModel) {
+  openDialog(driver?: DriverEntity) {
     const dialogRef = this.dialog.open(DialogCadastroComponent, {
       width: '650px',
       data: driver ? driver : null

@@ -4,10 +4,10 @@ import { finalize } from 'rxjs/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import * as _ from 'lodash';
 
-import { IMotoristaController } from 'src/app/core/interfaces/controllers/imotorista-controller';
 import { NotificationService } from '../../notification/notification.service';
-import { DocumentsModel } from 'src/app/core/domain/entity/documents-model';
-import { MotoristaModel } from 'src/app/core/domain/entity/motorista-model';
+import { DriverEntity } from '../../../../../domain/entities/driver-entity';
+import { IMotoristaController } from 'src/app/domain/interfaces/controllers/imotorista-controller';
+import { DocumentsEntity } from '../../../../../domain/entities/documents-entity';
 
 @Component({
   selector: 'app-dialog-cadastro',
@@ -21,7 +21,8 @@ export class DialogCadastroComponent implements OnInit {
   isLoading: boolean;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: MotoristaModel,
+    @Inject(MAT_DIALOG_DATA) public data: DriverEntity
+    ,
     private motoristaController: IMotoristaController,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<DialogCadastroComponent>,
@@ -46,7 +47,7 @@ export class DialogCadastroComponent implements OnInit {
     }
   }
 
-  createDocument(document?: DocumentsModel): FormGroup {
+  createDocument(document?: DocumentsEntity): FormGroup {
     return this.fb.group({
       number: [document ? document.number : '', Validators.required],
       category: document ? document.category : '',
@@ -55,7 +56,7 @@ export class DialogCadastroComponent implements OnInit {
     });
   }
 
-  addDocuments(documents: DocumentsModel[]) {
+  addDocuments(documents: DocumentsEntity[]) {
     documents.forEach((item) => {
       this.documents = this.form.get('documents') as FormArray;
       this.documents.push(this.createDocument(item));
@@ -90,7 +91,7 @@ export class DialogCadastroComponent implements OnInit {
     .pipe(finalize(() => {
       this.isLoading = false;
     }))
-    .subscribe((driver: MotoristaModel) => this.dialogRef.close(driver), err => this.notification.open(err));
+    .subscribe((driver: DriverEntity) => this.dialogRef.close(driver), err => this.notification.open(err));
   }
 
   insert() {
@@ -98,7 +99,7 @@ export class DialogCadastroComponent implements OnInit {
     .pipe(finalize(() => {
       this.isLoading = false;
     }))
-    .subscribe((driver: MotoristaModel) => this.dialogRef.close(driver), err => this.notification.open(err));
+    .subscribe((driver: DriverEntity) => this.dialogRef.close(driver), err => this.notification.open(err));
   }
 
 }

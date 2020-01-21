@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { IUsuarioController } from 'src/app/core/interfaces/controllers/iusuario-controller';
 import { AuthService } from 'src/app/infra/auth/auth.service';
-import { UsuarioModel } from 'src/app/core/domain/entity/usuario-model';
+import { IUsuarioController } from 'src/app/domain/interfaces/controllers/iusuario-controller';
+import { UserEntity } from '../../../domain/entities/user-entity';
 
 @Component({
   selector: 'app-base',
@@ -21,7 +21,7 @@ export class BaseComponent implements OnInit {
   ngOnInit() {
   }
 
-  get usuario(): UsuarioModel {
+  get usuario(): UserEntity {
     return this.authService.credentials;
   }
 

@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 import { ValidationError } from 'ts.validator.fluent/dist';
 
 import { AuthService } from 'src/app/infra/auth/auth.service';
-import { IUsuarioController } from 'src/app/core/interfaces/controllers/iusuario-controller';
 import { NotificationService } from '../../shared/notification/notification.service';
-import { UsuarioModel } from 'src/app/core/domain/entity/usuario-model';
+import { IUsuarioController } from 'src/app/domain/interfaces/controllers/iusuario-controller';
+import { UserEntity } from '../../../../domain/entities/user-entity';
 
 @Component({
   selector: 'app-login',
@@ -49,13 +49,13 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
     }))
     .subscribe(
-      (usuario: UsuarioModel) => this.loginResponse(usuario),
+      (usuario: UserEntity) => this.loginResponse(usuario),
       (err: ValidationError[]) => this.notification.open(err)
     );
 
   }
 
-  loginResponse(usuario: UsuarioModel) {
+  loginResponse(usuario: UserEntity) {
     if (usuario) {
       this.authService.credentials = usuario;
       this.router.navigateByUrl('/home');

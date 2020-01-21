@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UsuarioModel } from 'src/app/core/domain/entity/usuario-model';
+import { UserEntity } from '../../domain/entities/user-entity';
 
 const credentialsKey = 'credentials';
 
@@ -8,7 +8,7 @@ const credentialsKey = 'credentials';
 })
 export class AuthService {
 
-  private usuario: UsuarioModel;
+  private usuario: UserEntity;
 
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
@@ -22,11 +22,11 @@ export class AuthService {
     return !!this.credentials;
   }
 
-  get credentials(): UsuarioModel {
+  get credentials(): UserEntity {
     return this.usuario;
   }
 
-  set credentials(credentials: UsuarioModel) {
+  set credentials(credentials: UserEntity) {
     this.usuario = credentials || null;
 
     if (credentials) {

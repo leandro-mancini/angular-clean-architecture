@@ -1,6 +1,6 @@
-export abstract class Mapper<REQ, RES, I> {
-  abstract mapFrom(param: RES): I;
+export abstract class Mapper<O, E> {
+  abstract mapFrom(param: O): E;
 
-  abstract mapTo(param: I): REQ;
+  abstract mapTo(param: O): E;
 }
 

@@ -5,10 +5,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { PresentationModule } from './presentation/presentation.module';
-import { CoreModule } from './core/core.module';
 import { InfraModule } from './infra/infra.module';
 import { DataModule } from './data/data.module';
 import { environment } from '../environments/environment';
+import { DomainModule } from './domain/domain.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    CoreModule,
+    DomainModule,
     DataModule,
     InfraModule,
     PresentationModule
